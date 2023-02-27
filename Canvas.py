@@ -1,18 +1,16 @@
-# All the imports go here
 import cv2
 import numpy as np
 import mediapipe as mp
 from collections import deque
 
 
-# Giving different arrays to handle colour points of different colour
 bpoints = [deque(maxlen=1024)]
 gpoints = [deque(maxlen=1024)]
 rpoints = [deque(maxlen=1024)]
 ypoints = [deque(maxlen=1024)]
 
 
-# These indexes will be used to mark the points in particular arrays of specific colour
+
 blue_index = 0
 green_index = 0
 red_index = 0
@@ -149,11 +147,6 @@ while ret:
 
     # Draw lines of all the colors on the canvas and frame
     points = [bpoints, gpoints, rpoints, ypoints]
-    # for j in range(len(points[0])):
-    #         for k in range(1, len(points[0][j])):
-    #             if points[0][j][k - 1] is None or points[0][j][k] is None:
-    #                 continue
-    #             cv2.line(paintWindow, points[0][j][k - 1], points[0][j][k], colors[0], 2)
     for i in range(len(points)):
         for j in range(len(points[i])):
             for k in range(1, len(points[i][j])):
